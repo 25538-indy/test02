@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบบันทึกข้อมูลสุขภาพนักเรียน</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; font-family: 'Chula', sans-serif; }
+        .form-container { max-width: 600px; margin: 50px auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0px 4px 15px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="form-container">
+        <h3 class="text-center text-primary mb-4">🩺 บันทึกข้อมูลสุขภาพนักเรียนเบื้องต้น</h3>
+        <form id="healthForm">
+            
+            <div class="mb-3">
+                <label for="studentId" class="form-label">เลขประจำตัวนักเรียน (5 หลัก)</label>
+                <input type="text" class="form-standard form-control" id="studentId" maxlength="5" pattern="\d{5}" placeholder="เช่น 01234" required>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="firstName" class="form-label">ชื่อ</label>
+                    <input type="text" class="form-control" id="firstName" required>
+                </div>
+                <div class="col">
+                    <label for="lastName" class="form-label">นามสกุล</label>
+                    <input type="text" class="form-control" id="lastName" required>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label for="classLevel" class="form-label">ชั้นเรียน</label>
+                    <input type="text" class="form-control" id="classLevel" placeholder="เช่น ม.1" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="room" class="form-label">ห้อง</label>
+                    <input type="number" class="form-control" id="room" min="1" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="classNumber" class="form-label">เลขที่</label>
+                    <input type="number" class="form-control" id="classNumber" min="1" required>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <label for="weight" class="form-label">น้ำหนัก (ก.ก.)</label>
+                    <input type="number" class="form-control" id="weight" step="0.1" min="1" required>
+                </div>
+                <div class="col">
+                    <label for="height" class="form-label">ส่วนสูง (ซ.ม.)</label>
+                    <input type="number" class="form-control" id="height" step="0.1" min="1" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">บันทึกข้อมูล</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('healthForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('บันทึกข้อมูลสำเร็จ! (ข้อมูลพร้อมส่งต่อไปยังระบบหลังบ้าน)');
+        // ตรงนี้สามารถเขียนคำสั่งส่งข้อมูลไปยัง Google Sheets หรือ Database ต่อได้
+    });
+</script>
+
+</body>
+</html>
